@@ -1,6 +1,8 @@
 package com.vj.store.testcases;
 
 import com.vj.store.base.BaseTest;
+import com.vj.store.pages.HomePage;
+import com.vj.store.pages.StorePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,13 +14,14 @@ public class MyFirstTestCase extends BaseTest {
     @Test
     public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
         driver.get("https://askomdch.com/");
-        driver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
-        driver.findElement(By.cssSelector("input#woocommerce-product-search-field-0")).sendKeys("Blue");
-        driver.findElement(By.cssSelector("button[value='Search']")).click();
-        Assert.assertEquals(
-            driver.findElement(By.cssSelector(".woocommerce-products-header__title")).getText(),
-            "Search results: “Blue”");
-        driver.findElement(By.cssSelector("a[aria-label='Add “Blue Shoes” to your cart']")).click();
+
+        HomePage homePage = new HomePage(driver);
+        StorePage storePage = homePage.clickStoreMenuLink();
+        storePage.enterTextInSearchFld("Blue");
+        storePage.clickSearchBtn();
+        Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
+        storePage.clickAddToCartBtn();
+:quitDriver();
         Thread.sleep(2000);
         driver.findElement(By.cssSelector("a[title='View cart']")).click();
         driver.findElement(By.cssSelector(".checkout-button")).click();
