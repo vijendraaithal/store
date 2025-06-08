@@ -11,6 +11,7 @@ public class MyFirstTestCase extends BaseTest {
 
     @Test
     public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
+        driver.get("https://askomdch.com/");
         driver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
         driver.findElement(By.cssSelector("input#woocommerce-product-search-field-0")).sendKeys("Blue");
         driver.findElement(By.cssSelector("button[value='Search']")).click();
@@ -37,6 +38,7 @@ public class MyFirstTestCase extends BaseTest {
 
     @Test
     public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException {
+        driver.get("https://askomdch.com/");
         driver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
         driver.findElement(By.cssSelector("input#woocommerce-product-search-field-0")).sendKeys("Blue");
         driver.findElement(By.cssSelector("button[value='Search']")).click();

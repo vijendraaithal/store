@@ -1,5 +1,6 @@
 package com.vj.store.base;
 
+import com.vj.store.factory.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -11,9 +12,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void startDriver() {
-        driver = new ChromeDriver();
-        driver.get("https://askomdch.com/");
-        driver.manage().window().maximize();
+        driver = new DriverManager().initializeDriver();
     }
 
     @AfterMethod
