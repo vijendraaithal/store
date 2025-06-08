@@ -17,8 +17,8 @@ public class MyFirstTestCase extends BaseTest {
 
         HomePage homePage = new HomePage(driver);
         StorePage storePage = homePage.clickStoreMenuLink();
-        storePage.enterTextInSearchFld("Blue");
-        storePage.clickSearchBtn();
+        storePage.enterTextInSearchFld("Blue").clickSearchBtn();
+//        storePage.clickSearchBtn();
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
         storePage.clickAddToCartBtn();
         Thread.sleep(2000);
