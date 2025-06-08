@@ -21,7 +21,6 @@ public class MyFirstTestCase extends BaseTest {
         storePage.clickSearchBtn();
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
         storePage.clickAddToCartBtn();
-:quitDriver();
         Thread.sleep(2000);
         driver.findElement(By.cssSelector("a[title='View cart']")).click();
         driver.findElement(By.cssSelector(".checkout-button")).click();
