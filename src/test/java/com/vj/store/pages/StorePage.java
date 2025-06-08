@@ -32,9 +32,10 @@ public class StorePage extends BasePage {
         driver.findElement(addToCartBtn).click();
     }
 
-}
+    public StorePage search(String text) {
+        enterTextInSearchFld(text);
+        clickSearchBtn();
+        return this;
+    }
 
-/*
-driver.findElement(By.cssSelector("input#woocommerce-product-search-field-0")).sendKeys("Blue");
-driver.findElement(By.cssSelector("button[value='Search']")).click();
- */
+}
