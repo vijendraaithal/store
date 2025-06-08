@@ -20,7 +20,7 @@ public class MyFirstTestCase extends BaseTest {
         storePage.search("Blue");
 
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
-        storePage.clickAddToCartBtn();
+        storePage.clickAddToCartBtn("Blue Shoes");
         Thread.sleep(2000);
         driver.findElement(By.cssSelector("a[title='View cart']")).click();
         driver.findElement(By.cssSelector(".checkout-button")).click();

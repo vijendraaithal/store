@@ -8,7 +8,6 @@ public class StorePage extends BasePage {
     private final By searchFld = By.cssSelector("input#woocommerce-product-search-field-0");
     private final By searchBtn = By.cssSelector("button[value='Search']");
     private final By title = By.cssSelector(".woocommerce-products-header__title");
-    private final By addToCartBtn = By.cssSelector("a[aria-label='Add “Blue Shoes” to your cart']");
 
     public StorePage(WebDriver driver) {
         super(driver);
@@ -28,14 +27,20 @@ public class StorePage extends BasePage {
         return driver.findElement(title).getText();
     }
 
-    public void clickAddToCartBtn() {
+    public StorePage clickAddToCartBtn(String productName) {
+        By addToCartBtn = getAddToCartBtnElement(productName);
         driver.findElement(addToCartBtn).click();
+        return this;
     }
 
     public StorePage search(String text) {
         enterTextInSearchFld(text);
         clickSearchBtn();
         return this;
+    }
+
+    public By getAddToCartBtnElement(String productName) {
+        return By.cssSelector("a[aria-label='Add “" + productName + "” to your cart']");
     }
 
 }
